@@ -3790,7 +3790,7 @@ body.tinted-bg {
   -o-background-size: cover;
   -webkit-background-size: cover; }
 
-.form-narrow {
+.form-narrow, .narrow {
   margin: 0 auto;
   max-width: 500px;
   background: #fff;
@@ -3805,16 +3805,27 @@ body.tinted-bg {
   -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05); }
-  .form-narrow h1 {
+  .form-narrow h1, .narrow h1 {
     text-align: center;
     margin: 4px auto 24px; }
-  .form-narrow h5 {
+  .form-narrow h5, .narrow h5 {
     border-top: 1px dashed #ddd;
     padding-top: 20px; }
-  .form-narrow .btn-block {
+  .form-narrow .btn-block, .narrow .btn-block {
     margin-bottom: 20px; }
-  .form-narrow .checkbox.pull-left {
+  .form-narrow .checkbox.pull-left, .narrow .checkbox.pull-left {
     margin-top: 0; }
+  .form-narrow .btn-full, .narrow .btn-full {
+    background: transparent;
+    border-top: 1px solid #e7e8ea;
+    text-align: center;
+    padding: 20px;
+    clear: both;
+    margin: 20px 0; }
+    .form-narrow .btn-full .btn, .narrow .btn-full .btn {
+      min-width: 100px; }
+    .form-narrow .btn-full .btn-group .btn, .narrow .btn-full .btn-group .btn {
+      margin: 0; }
 
 @media (max-width: 1199px) {
   .form-narrow {
@@ -4274,6 +4285,107 @@ ul.resource-actions > li {
   #project-map .btn-wrap .btn-block {
     margin: 0 auto; }
 
+/* =Forms
+-------------------------------------------------------------- */
+/* =Contacts form styling
+-------------------------------------------------------------- */
+tr.contacts-error {
+  background: #fcf8e3; }
+  tr.contacts-error li {
+    padding: 0; }
+  tr.contacts-error + tr td {
+    border-top: none;
+    padding-top: 0;
+    background: #fcf8e3; }
+
+/* =Party selection widget
+-------------------------------------------------------------- */
+#select-party #party-select {
+  width: 100%; }
+
+#select-party .select2 {
+  display: block;
+  margin: 0.5em 0;
+  width: 100% !important; }
+
+#select-party #add-party {
+  padding: 6px 18px; }
+  #select-party #add-party .glyphicon {
+    opacity: 0.5;
+    padding-right: 8px; }
+
+.select2-container .party-name {
+  display: block; }
+
+.select2-container .party-type {
+  display: block;
+  font-size: 0.85em;
+  opacity: 0.75; }
+
+/* =Required field label
+-------------------------------------------------------------- */
+label.required:after {
+  content: "*";
+  color: #d9534f;
+  font-style: normal;
+  padding: 0 3px; }
+
+/* =Parsley client-side validation
+-------------------------------------------------------------- */
+.form-group.has-error {
+  background-color: #fcf8e3;
+  padding: 10px; }
+
+.has-success input,
+.has-success select,
+.has-success textarea {
+  background: url("/static/img/checkmark.png") calc(100% - 8px) 50% no-repeat;
+  padding-right: 36px; }
+
+.has-error input,
+.has-error select,
+.has-error textarea {
+  border: 1px solid #d9534f;
+  background: #fff url("/static/img/cross.png") calc(100% - 8px) 50% no-repeat;
+  padding-right: 36px; }
+
+.has-success select,
+.has-error select {
+  background-position: calc(100% - 20px) 50%; }
+
+.has-error #select2-party-select-container {
+  background: #fff url("/static/img/cross.png") right 50% no-repeat;
+  padding-right: 36px; }
+
+.parsley-errors-list {
+  opacity: 0;
+  transition: all .3s ease-in;
+  -o-transition: all .3s ease-in;
+  -moz-transition: all .3s ease-in;
+  -webkit-transition: all .3s ease-in; }
+
+.parsley-errors-list.filled {
+  opacity: 1; }
+
+.parsley-errors-list, .errorlist {
+  margin: 2px 0 3px;
+  padding: 0; }
+
+ul.parsley-errors-list, ul.errorlist {
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none !important; }
+  ul.parsley-errors-list li, ul.errorlist li {
+    background-color: #fcf8e3;
+    color: #a94442;
+    padding: 2px 8px;
+    display: list-item;
+    list-style-type: disc;
+    list-style-position: inside; }
+
+.well ul.parsley-errors-list li, .well ul.errorlist li {
+  background-color: transparent; }
+
 /* =Leaflet popups
 -------------------------------------------------------------- */
 .leaflet-container {
@@ -4414,7 +4526,7 @@ label {
   font-weight: 400; }
 
 a {
-  color: #337ab7; }
+  color: #2e51a3; }
   a:hover, a:focus {
     color: #0e305e;
     outline: none; }
@@ -4812,6 +4924,7 @@ header {
   border-radius: 0;
   min-width: 224px;
   min-width: 160px;
+  max-width: 300px;
   height: 70px;
   border: none;
   font-size: 13px;
@@ -4850,6 +4963,14 @@ header {
   .reg-links .btn-user .badge {
     color: transparent;
     background-color: #eeeeee; }
+  .reg-links .btn-user .username {
+    display: inline-block !important;
+    position: relative;
+    top: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px; }
   .reg-links .btn-user:hover, .reg-links .btn-user:focus {
     color: #fff;
     background-color: #28478f;
@@ -5028,6 +5149,8 @@ header {
     margin-left: 4px; }
   .reg-links .btn-user {
     min-width: 90px; }
+    .reg-links .btn-user .username {
+      display: none !important; }
     .reg-links .btn-user .thumbnail {
       margin-right: 4px; }
   .reg-links .btn-reg {
@@ -5827,7 +5950,10 @@ div.org-logo {
   clear: both;
   margin: 30px 0; }
 
-#projects-permissions .form-control {
+#projects-permissions .form-group, .form-inline .form-group {
+  display: block; }
+
+#projects-permissions .form-control, .form-inline .form-control {
   min-width: 70%; }
 
 /* =Dashboard map
@@ -5910,7 +6036,7 @@ img.org-logo, img#org-logo {
   clear: both;
   margin: 20px 0; }
   .btn-full .btn {
-    min-width: 200px; }
+    min-width: 160px; }
   .btn-full .btn-group .btn {
     margin: 0; }
 
@@ -5974,6 +6100,9 @@ div.add-btn-btm {
     display: table-cell;
     vertical-align: top;
     padding: 4px; }
+
+.form-narrow .alert-full, .narrow .alert-full {
+  margin-bottom: 20px; }
 
 .translation-wrapper {
   background-color: fuchsia; }
@@ -6065,21 +6194,6 @@ h1 .label {
   .nav-tabs a {
     font-size: 12px; } }
 
-/* =Error messaging for forms
--------------------------------------------------------------- */
-.form-group.has-error {
-  background-color: #fcf8e3;
-  padding: 10px; }
-
-ul.errorlist {
-  margin-bottom: 0;
-  padding-left: 0;
-  list-style: none !important; }
-  ul.errorlist li {
-    background-color: #fcf8e3;
-    color: #a94442;
-    padding: 2px 8px; }
-
 /* =Map location details
 -------------------------------------------------------------- */
 .content-single .detail h2 span {
@@ -6088,40 +6202,5 @@ ul.errorlist {
   display: block;
   text-transform: uppercase;
   padding-bottom: 2px; }
-
-/* =Contacts form styling
--------------------------------------------------------------- */
-tr.contacts-error {
-  background: #fcf8e3; }
-  tr.contacts-error li {
-    padding: 0; }
-  tr.contacts-error + tr td {
-    border-top: none;
-    padding-top: 0;
-    background: #fcf8e3; }
-
-/* =Party selection widget
--------------------------------------------------------------- */
-#select-party #party-select {
-  width: 100%; }
-
-#select-party .select2 {
-  display: block;
-  margin: 0.5em 0;
-  width: 100%; }
-
-#select-party #add-party {
-  padding: 6px 18px; }
-  #select-party #add-party .glyphicon {
-    opacity: 0.5;
-    padding-right: 8px; }
-
-.select2-container .party-name {
-  display: block; }
-
-.select2-container .party-type {
-  display: block;
-  font-size: 0.85em;
-  opacity: 0.75; }
 
 /*# sourceMappingURL=../../../../../static/css/main.css.map */
