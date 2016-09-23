@@ -17,7 +17,8 @@ from xforms.serializers import XFormListSerializer, XFormSubmissionSerializer
 
 from ..exceptions import InvalidXMLSubmission
 
-logger = logging.getLogger('xform.submissions')
+# logger = logging.getLogger('xform.submissions')
+logger = logging
 
 OPEN_ROSA_ENVELOPE = """
     <OpenRosaResponse xmlns="http://openrosa.org/http/response">
@@ -48,7 +49,8 @@ class XFormSubmissionViewSet(OpenRosaHeadersMixin,
             instance = ModelHelper(
             ).upload_submission_data(request)
         except InvalidXMLSubmission as e:
-            logger.debug(str(e))
+            # logger.debug(str(e))
+            logger.error(str(e))
             return self._sendErrorResponse(request, e)
 
         serializer = XFormSubmissionSerializer(instance)

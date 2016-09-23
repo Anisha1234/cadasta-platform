@@ -178,6 +178,7 @@ class ModelHelper():
             raise InvalidXMLSubmission(_('XML submission not found'))
 
         xml_submission_file = request.data['xml_submission_file'].read()
+        print(xml_submission_file)
         full_submission = XFormToDict(
             xml_submission_file.decode('utf-8')
         ).get_dict()
